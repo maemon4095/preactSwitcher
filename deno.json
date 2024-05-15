@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "jsxFactory": "h"
+  },
+  "imports": {
+    "preact": "https://esm.sh/preact@10.21.0"
+  }
+}
