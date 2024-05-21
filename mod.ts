@@ -1,4 +1,4 @@
-import { ComponentChild, ComponentClass } from "preact";
+import type { ComponentChild, ComponentClass } from "preact";
 import { Component, h } from "preact";
 
 // deno-lint-ignore no-explicit-any
@@ -23,9 +23,7 @@ export type SwitcherContext<T extends Paths> = {
   ): void;
 };
 
-export function createSwitcher<T extends Paths>(
-  paths: T,
-) {
+export function createSwitcher<T extends Paths>(paths: T): [new () => Component, SwitcherContext<T>] {
   let onswitch: undefined | ((path: PathOf<Paths>, props: Props) => void);
   const context: SwitcherContext<T> = {
     switch<K extends PathOf<T>>(
