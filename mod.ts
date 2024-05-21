@@ -23,7 +23,7 @@ export type SwitcherContext<T extends Paths> = {
   ): void;
 };
 
-export function createSwitcher<T extends Paths>(paths: T): [new () => Component, SwitcherContext<T>] {
+export function createSwitcher<T extends Paths>(paths: T): [new () => Component<SwitcherComponentProps<T>, unknown>, SwitcherContext<T>] {
   let onswitch: undefined | ((path: PathOf<Paths>, props: Props) => void);
   const context: SwitcherContext<T> = {
     switch<K extends PathOf<T>>(
